@@ -5,10 +5,13 @@
  * @format: format string
  * Return: number of characters printed
  */
-int	_printf(const char *format, ...)
+int _printf(const char *format, ...)
 {
 	va_list	args;
 	int i, len;
+
+	if (format == NULL || *format == '\0')
+		return (-1);
 
 	va_start(args, format);
 	len = 0;
@@ -27,6 +30,9 @@ int	_printf(const char *format, ...)
 				break;
 			case '%':
 				len += print_percent(args);
+				break;
+			case 'b':
+				len += print_binary(va_arg(args, unsigned int));
 				break;
 			default:
 				_putchar('%');

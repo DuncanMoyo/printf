@@ -10,5 +10,6 @@ int _strlen(char *s);
 int print_char(va_list args);
 int print_str(va_list args);
 int print_percent(va_list args);
+int print_binary(unsigned int n);
 
 #endif
