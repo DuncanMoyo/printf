@@ -1,56 +1,63 @@
 #include "main.h"
 
 /**
- * _printf - produces ouput according to a format
+ * _printf - produces output according to a format
  * @format: character string
  *
- * Return: the number of chars printed (excluding null byte)
+ * Return: number of characters printed
+ * (excluding the null byte used to end output to strings)
  */
+
 int _printf(const char *format, ...)
 {
-	va_list args;
-	int printed_chars = 0;
-	char *str_arg, c_arg;
-	const char *p;
+	va_list arg;
+	int i, j, count;
 
-	va_start(args, format);
-	for (p = format; *p != '\0'; p++)
+	i = 0;
+	count = 0;
+
+	if (*format == '\0')
 	{
-		if (*p == '%')
+		return (-1);
+	}	
+
+	va_start(arg, format);
+
+	while (format && format[i])
+	{
+		if (format[i] == '%')
 		{
-			p++;
-			switch (*p)
+			i++;
+
+			if (format[i] == 'c')
 			{
-				case 'c':
-					c_arg = (char) va_arg(args, int);
-					_putchar(c_arg);
-					printed_chars++;
-					break;
-				case 's':
-					str_arg = va_arg(args, char *);
-					for (; *str_arg != '\0'; str_arg++)
-					{
-						_putchar(*str_arg);
-						printed_chars++;
-					}
-					break;
-				case '%':
-					_putchar('%');
-					printed_chars++;
-					break;
-				default:
-					_putchar('%');
-					_putchar(*p);
-					printed_chars += 2;
-					break;
+				count += _putchar(va_arg(arg, int));
+			} else if (format[i] == 's')
+			{
+				char *str = va_arg(arg, char *);
+				int len = _strlen(str);
+
+				for (j = 0; j < len; j++)
+				{
+					count += _putchar(str[j]);
+				}
+			} else if (format[i] == '%')
+			{
+				count += _putchar('%');
+			} else
+			{
+				_putchar('%');
+				_putchar(format[i]);
+				count += 2;
 			}
-		}
-		else
+		} else
 		{
-			_putchar(*p);
-			printed_chars++;
+			count += _putchar(format[i]);
 		}
+		i++;
 	}
-	va_end(args);
-	return (printed_chars);
+	va_end(arg);
+
+	return (count);
 }
+
