@@ -35,12 +35,10 @@ int _printf(const char *format, ...)
 			{
 				char *str = va_arg(arg, char *);
 				int len = _strlen(str);
-				if (*str != '\0')
+
+				for (j = 0; j < len; j++)
 				{
-					for (j = 0; j < len; j++)
-					{
-						count += _putchar(str[j]);
-					}
+					count += _putchar(str[j]);
 				}
 			} else if (format[i] == '%')
 			{
