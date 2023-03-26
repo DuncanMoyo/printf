@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	i = 0;
 	count = 0;
 
-	if (format == NULL || *format == '\0')
+	if (*format == '\0')
 	{
 		return (-1);
 	}	
@@ -35,10 +35,12 @@ int _printf(const char *format, ...)
 			{
 				char *str = va_arg(arg, char *);
 				int len = _strlen(str);
-
-				for (j = 0; j < len; j++)
+				if (*str != '\0')
 				{
-					count += _putchar(str[j]);
+					for (j = 0; j < len; j++)
+					{
+						count += _putchar(str[j]);
+					}
 				}
 			} else if (format[i] == '%')
 			{
