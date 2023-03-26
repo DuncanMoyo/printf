@@ -8,9 +8,10 @@
 int	_printf(const char *format, ...)
 {
 	va_list	args;
+	int i, len;
 
-	int i, len = 0;
 	va_start(args, format);
+	len = 0;
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
@@ -20,18 +21,18 @@ int	_printf(const char *format, ...)
 			{
 			case 'c':
 				len += print_char(args);
-				break ;
+				break;
 			case 's':
 				len += print_str(args);
-				break ;
+				break;
 			case '%':
 				len += print_percent(args);
-				break ;
+				break;
 			default:
 				_putchar('%');
 				_putchar(format[i]);
 				len += 2;
-				break ;
+				break;
 			}
 		}
 		else
