@@ -16,7 +16,7 @@ int print_binary(unsigned int n)
 	{
 		count += print_binary(n >> 1);
 	}
-	count += _putchar((n & 1) + '0');
+	count += character_print((n & 1) + '0');
 
 	return (count);
 }

@@ -1,5 +1,31 @@
 #include "main.h"
-#include <unistd.h>
+
+/**
+ * handle_specifier - handle a single specifier character
+ * @specifier: the specifier character
+ * @args: the argument list
+ * Return: number of characters printed
+ */
+int handle_specifier(char specifier, va_list args)
+{
+	switch (specifier)
+	{
+	case 'c':
+		return (character_print(va_arg(args, int)));
+	case 's':
+		return (string_print(va_arg(args, char *)));
+	case '%':
+		return (percent_print());
+	case 'b':
+		return (print_binary(va_arg(args, unsigned int)));
+	case 'd':
+	case 'i':
+		return (print_integer(va_arg(args, int)));
+	default:
+		return (character_print('%') + character_print(specifier));
+	}
+}
+
 /**
  * _printf - print output according to a format
  * @format: format string
@@ -20,25 +46,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			switch (format[i])
-			{
-			case 'c':
-				count += character_print(va_arg(args, int));
-				break;
-			case 's':
-				count += string_print(va_arg(args, char *));
-				break;
-			case '%':
-				count += percent_print();
-				break;
-			case 'b':
-				count += print_binary(va_arg(args, unsigned int));
-				break;
-			default:
-				count += character_print('%');
-				count += character_print(format[i]);
-				break;
-			}
+			count += handle_specifier(format[i], args);
 		}
 		else
 			count += character_print(format[i]);

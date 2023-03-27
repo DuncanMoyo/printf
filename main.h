@@ -21,6 +21,8 @@ int string_print(char *str);
 /* print a percent sign */
 int percent_print(void);
 int specifier_r(va_list args);
+/* print an integer */
+int print_integer(int n);
 
 #endif
 
