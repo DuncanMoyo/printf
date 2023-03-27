@@ -15,9 +15,9 @@ int _printf(const char *format, ...)
 		return (-1);
 	}
 	va_start(args, format);
-	while(format[i] != '\0')
+	while (format[i] != '\0')
 	{
-		if(format[i] == '%')
+		if (format[i] == '%')
 		{
 			i++;
 			switch (format[i])
@@ -33,9 +33,6 @@ int _printf(const char *format, ...)
 				break;
 			case 'b':
 				count += print_binary(va_arg(args, unsigned int));
-    			break;
-			case 'r':
-				count += specifier_r(args);
 				break;
 			default:
 				count += character_print('%');
@@ -44,9 +41,7 @@ int _printf(const char *format, ...)
 			}
 		}
 		else
-		{
 			count += character_print(format[i]);
-		}
 		i++;
 	}
 	va_end(args);
