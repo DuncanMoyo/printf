@@ -23,6 +23,9 @@ int percent_print(void);
 int specifier_r(va_list args);
 /* print an integer */
 int print_integer(int n);
-
+/* print a pointer in hexadecimal format */
+int  print_pointer(void *ptr);
+/* print an unsigned long integer in hexadecimal format */
+int print_hex(unsigned long int n);
 #endif
 

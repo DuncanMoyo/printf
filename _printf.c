@@ -21,6 +21,8 @@ int handle_specifier(char specifier, va_list args)
 	case 'd':
 	case 'i':
 		return (print_integer(va_arg(args, int)));
+	case 'p':
+		return (print_pointer(va_arg(args, void *)));
 	default:
 		return (character_print('%') + character_print(specifier));
 	}
