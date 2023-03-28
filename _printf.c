@@ -23,6 +23,14 @@ int handle_specifier(char specifier, va_list args)
 		return (print_integer(va_arg(args, int)));
 	case 'p':
 		return (print_pointer(va_arg(args, void *)));
+	case 'u':
+		return (print_unsigned_int(va_arg(args, unsigned int)));
+	case 'o':
+		return (print_octal(va_arg(args, unsigned int)));
+	case 'x':
+		return (print_hex(va_arg(args, unsigned long int)));
+	case 'X':
+		return (print_hex_upper(va_arg(args, unsigned long int)));
 	default:
 		return (character_print('%') + character_print(specifier));
 	}
