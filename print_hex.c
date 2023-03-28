@@ -8,7 +8,7 @@
 
 int print_hex(unsigned long int n)
 {
-	char hex_digits[] = "0123456789adcdef";
+	char hex_digits[] = "0123456789abcdef";
 	int count = 0;
 
 	if (n / 16)
