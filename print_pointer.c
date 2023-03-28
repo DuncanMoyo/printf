@@ -10,7 +10,7 @@ int print_pointer(void *ptr)
 {
 	unsigned long int address = (unsigned long int)ptr;
 	int count = 0;
-	
+
 	if (ptr == NULL)
 	{
 		return (-1);
