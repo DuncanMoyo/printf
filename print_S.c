@@ -2,8 +2,8 @@
 
 /**
  * print_S - prints the string
- * @args: list of arguments
- * Return: the string 
+ * @str: input string
+ * Return: the string
  */
 
 int print_S(char *str)

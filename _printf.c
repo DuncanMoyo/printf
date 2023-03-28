@@ -63,9 +63,7 @@ int _printf(const char *format, ...)
 			i++;
 			ret = handle_specifier(format[i], args);
 			if (ret == -1)
-			{
 				return (-1);
-			}
 			count += ret;
 		}
 		else
@@ -83,9 +81,7 @@ int _printf(const char *format, ...)
 	}
 	/* write any remaining characters in the buffer to stdout */
 	if (j > 0)
-	{
 		write(1, buffer, j);
-	}
 	va_end(args);
 	return (count);
 }
