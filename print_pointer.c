@@ -18,7 +18,7 @@ int print_pointer(void *ptr)
 
 	count += _putchar('0');
 	count += _putchar('x');
-	count += print_hex(address);
+	count += print_hex(address, 0);
 
 	return (count);
 }

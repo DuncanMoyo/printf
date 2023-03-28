@@ -26,12 +26,11 @@ int print_integer(int n);
 /* print a pointer in hexadecimal format */
 int  print_pointer(void *ptr);
 /* print an unsigned long integer in hexadecimal format */
-int print_hex(unsigned long int n);
+int print_hex(unsigned long int n, int uppercase);
 /* print unsigned integer */
 int print_unsigned_int(unsigned int n);
 /* prints octal */
 int print_octal(unsigned int n);
-/* prints hexidecimal in uppercase */
-int print_hex_upper(unsigned long int n);
+
 #endif
 

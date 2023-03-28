@@ -28,9 +28,9 @@ int	handle_specifier(char specifier, va_list args)
 	case 'o':
 		return (print_octal(va_arg(args, unsigned int)));
 	case 'x':
-		return (print_hex(va_arg(args, unsigned long int)));
+		return (print_hex(va_arg(args, unsigned long int), 0));
 	case 'X':
-		return (print_hex_upper(va_arg(args, unsigned long int)));
+		return (print_hex(va_arg(args, unsigned long int), 1));
 	default:
 		return (character_print('%') + character_print(specifier));
 	}

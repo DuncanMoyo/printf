@@ -19,7 +19,7 @@ int print_unsigned(unsigned int n)
  * @n: the number to print
  * Return: number of characters printed
  */
-int print_octal(unsigned int n)
+/* int print_octal(unsigned int n)
 {
 	int count = 0;
 
@@ -28,14 +28,14 @@ int print_octal(unsigned int n)
 	count += _putchar((n % 8) + '0');
 	return (count);
 }
-
+*/
 /**
  * print_hex - print an unsigned hexadecimal number
  * @n: the number to print
  * @uppercase: whether to print in uppercase
  * Return: number of characters printed
  */
-int print_hex(unsigned int n, int uppercase)
+/* int print_hex(unsigned long int n, int uppercase)
 {
 	char *hex_digits = uppercase ? "0123456789ABCDEF" : "0123456789abcdef";
 	int count = 0;
@@ -45,3 +45,4 @@ int print_hex(unsigned int n, int uppercase)
 	count += _putchar(hex_digits[n % 16]);
 	return (count);
 }
+*/
