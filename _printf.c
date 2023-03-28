@@ -1,5 +1,5 @@
 #include "main.h"
-
+#define BUFFER_SIZE 1024
 /**
  * handle_specifier - handle a single specifier character
  * @specifier: the specifier character
@@ -46,9 +46,11 @@ int handle_specifier(char specifier, va_list args)
 int _printf(const char *format, ...)
 {
 	va_list	args;
-	int	count, i;
+	int	count, i, j, ret;
+	/* declaring a local buffer of size 1024 chars*/
+	char  buffer[BUFFER_SIZE];
 
-	count = 0, i = 0;
+	count = 0, i = 0, j = 0;
 	if (format == NULL)
 	{
 		return (-1);
@@ -59,11 +61,30 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			count += handle_specifier(format[i], args);
+			ret = handle_specifier(format[i], args);
+			if (ret == -1)
+			{
+				return (-1);
+			}
+			count += ret;
 		}
 		else
-			count += character_print(format[i]);
+		{
+			if (j == BUFFER_SIZE)
+			{
+				/* buffer is full, write contents to stdout */
+				write(1, buffer, BUFFER_SIZE);
+				j = 0;
+			}
+			buffer[j++] = format[i];
+			count++;
+		}
 		i++;
+	}
+	/* write any remaining characters in the buffer to stdout */
+	if (j > 0)
+	{
+		write(1, buffer, j);
 	}
 	va_end(args);
 	return (count);
