@@ -31,6 +31,8 @@ int print_hex(unsigned long int n, int uppercase);
 int print_unsigned_int(unsigned int n);
 /* prints octal */
 int print_octal(unsigned int n);
+/* custom String specifier */
+int print_S(char *str);
 
 #endif
 
