@@ -6,7 +6,7 @@
  * @args: the argument list
  * Return: number of characters printed
  */
-int	handle_specifier(char specifier, va_list args)
+int handle_specifier(char specifier, va_list args)
 {
 	switch (specifier)
 	{
@@ -34,7 +34,7 @@ int	handle_specifier(char specifier, va_list args)
 	case 'S':
 		return (print_S(va_arg(args, char *)));
 	default:
-		return (character_print('%' + specifier));
+		return (character_print('%') + character_print(specifier));
 	}
 }
 
@@ -43,7 +43,7 @@ int	handle_specifier(char specifier, va_list args)
  * @format: format string
  * Return: number of characters printed
  */
-int	_printf(const char *format, ...)
+int _printf(const char *format, ...)
 {
 	va_list	args;
 	int	count, i;
