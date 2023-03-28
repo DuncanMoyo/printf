@@ -34,7 +34,7 @@ int	handle_specifier(char specifier, va_list args)
 	case 'S':
 		return (print_S(va_arg(args, char *)));
 	default:
-		return (character_print('%') + character_print(specifier));
+		return (character_print('%' + specifier));
 	}
 }
 
