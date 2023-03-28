@@ -32,7 +32,7 @@ int	handle_specifier(char specifier, va_list args)
 	case 'X':
 		return (print_hex(va_arg(args, unsigned long int), 1));
 	default:
-		return (character_print('%') + character_print(specifier));
+		return (character_print('%' + specifier));
 	}
 }
 

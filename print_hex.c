@@ -3,6 +3,7 @@
 /**
  * print_hex - prints a number in hexadecimal format
  * @n: the number to be printed
+ * @uppercase: uppercase characters
  * Return: the hexadecimal characters
  */
 
@@ -13,7 +14,8 @@ int print_hex(unsigned long int n, int uppercase)
 
 	if (n / 16)
 	{
-		count += print_hex(n / 16, uppercase); /* because print_hex takes two arguments */
+		count += print_hex(n / 16, uppercase);
+		/* because print_hex takes two arguments */
 	}
 	if (uppercase)
 	{
