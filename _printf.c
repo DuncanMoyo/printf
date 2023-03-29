@@ -34,7 +34,7 @@ int handle_specifier(char specifier, va_list args)
 	case 'S':
 		return (print_S(va_arg(args, char *)));
 	default:
-		return (0);
+		return (character_print('%') + character_print(specifier));
 	}
 }
 
@@ -59,10 +59,6 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] == '\0')
-			{
-				break;
-			}
 			count += handle_specifier(format[i], args);
 		}
 		else
