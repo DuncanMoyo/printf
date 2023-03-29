@@ -9,4 +9,12 @@
 int print_reversed(char *str)
 {
 	int i, len;
+
+	len = _strlen(str);
+	
+	for (i = len -1; i >= 0; i--)
+	{
+		_putchar(str[i]);
+	}
+	return (len);
 }
