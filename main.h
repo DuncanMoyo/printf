@@ -33,6 +33,7 @@ int print_unsigned_int(unsigned int n);
 int print_octal(unsigned int n);
 /* custom String specifier */
 int print_S(char *str);
-
+/* prints a strinf in reverse */
+int print_reversed(char *str);
 #endif
 
